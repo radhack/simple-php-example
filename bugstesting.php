@@ -24,11 +24,11 @@
             . "xlsx, txt, html, and gif are allowed at this point <br />";
             $uploadOk = 0;
         }
-// Check if $uploadOk is set to 0 by an error
+        // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
             goto skip;
-// if everything is ok, try to upload file
+            // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["BugTestingOnly"]["tmp_name"], $target_file)) {
                 echo "The file " . basename($_FILES["BugTestingOnly"]["name"]) . " has been uploaded. <br />";
@@ -65,16 +65,16 @@
             }
         }
 
-// Get your credentials from environment variables
+        // Get your credentials from environment variables
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
 
-// Instance of a client for you to use for calls
+        // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
 
-// Example call with logging for embedded requests
+        // Example call with logging for embedded requests
         $request = new HelloSign\SignatureRequest;
-// $request->enableTestMode(); //disabled for bug
+        $request->enableTestMode();
         $request->setTitle("Testing");
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
@@ -82,22 +82,22 @@
         $request->addFile("$target_file");
 
         rename($target_file, "$target_file.embSigReq");
-// Turn it into an embedded request
+        // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
 
-// Send it to HelloSign
+        // Send it to HelloSign
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
         $response_id = $response->getId();
         echo "$response_id is the siganture request id <br />";
 
-// Grab the signature ID for the signature page that will be embedded in the page
+        // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
         $signature_id = $signatures[0]->getId();
 
-// Retrieve the URL to sign the document
+        // Retrieve the URL to sign the document
         $response = $client->getEmbeddedSignUrl($signature_id);
 
-// Store it to use with the embedded.js HelloSign.open() call
+        // Store it to use with the embedded.js HelloSign.open() call
         $sign_url = $response->getSignUrl();
 
         include('bugsignerpage.php');

@@ -1,74 +1,91 @@
-<?php
-// when I'm ready to start handling checkboxes on the form:
-// http://www.html-form-guide.com/php-form/php-form-checkbox.html
-require_once 'vendor/autoload.php';
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["uploadedTextTags"]["name"]);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-if ($imageFileType != "pdf") {
-    echo "Sorry, only pdfs are allowed at this point";
-    echo '<br />';
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-    echo '<br />';
-    // $uploadOk = 0;
-    goto skip;
-    
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["uploadedTextTags"]["tmp_name"], $target_file)) {
-        echo "The file " . basename($_FILES["uploadedTextTags"]["name"]) . " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-        $uploadOk = 0;
-        goto skip;
-    }
-}
-// Get your credentials from environment variables
-$api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-$client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-// Instance of a client for you to use for calls
-$client = new HelloSign\Client($api_key);
-// Example call with logging for embedded requests
-$request = new HelloSign\SignatureRequest;
-$request->enableTestMode();
-$request->setUseTextTags(TRUE);
-$request->setTitle("Testing");
-$request->setSubject('My First embedded signature request');
-$request->setMessage('Awesome, right?');
-$request->addSigner('testing@testing.com', 'Something');
-$request->addFile("$target_file");
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Text Tags Signature Request</title>
+        <link rel="stylesheet" type="text/css" href="newcss.css" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" href="/favicon-16x16.png"/>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg"/>
+    </head>
+    <body>
+        <?php
+        // when I'm ready to start handling checkboxes on the form:
+        // http://www.html-form-guide.com/php-form/php-form-checkbox.html
+        require_once 'vendor/autoload.php';
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["uploadedTextTags"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        // Check if image file is a actual image or fake image
+        if ($imageFileType != "pdf") {
+            echo "Sorry, only pdfs are allowed at this point";
+            echo '<br />';
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            echo '<br />';
+            // $uploadOk = 0;
+            goto skip;
 
-// Turn it into an embedded request
-$embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["uploadedTextTags"]["tmp_name"], $target_file)) {
+                echo "The file " . basename($_FILES["uploadedTextTags"]["name"]) . " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+                $uploadOk = 0;
+                goto skip;
+            }
+        }
+        // Get your credentials from environment variables
+        $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
+        $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
 
-// Send it to HelloSign
-$response = $client->createEmbeddedSignatureRequest($embedded_request);
+        // Instance of a client for you to use for calls
+        $client = new HelloSign\Client($api_key);
+        // Example call with logging for embedded requests
+        $request = new HelloSign\SignatureRequest;
+        $request->enableTestMode();
+        $request->setUseTextTags(TRUE);
+        $request->setTitle("Testing");
+        $request->setSubject('My First embedded signature request');
+        $request->setMessage('Awesome, right?');
+        $request->addSigner('testing@testing.com', 'Something');
+        $request->addFile("$target_file");
 
-// wait for callback with signature_request_sent
-// 
-// Grab the signature ID for the signature page that will be embedded in the page
-$signatures = $response->getSignatures();
-$signature_id = $signatures[0]->getId();
+        // Turn it into an embedded request
+        $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
 
-// Retrieve the URL to sign the document
-$response = $client->getEmbeddedSignUrl($signature_id);
+        // Send it to HelloSign
+        $response = $client->createEmbeddedSignatureRequest($embedded_request);
 
-// Store it to use with the embedded.js HelloSign.open() call
-$sign_url = $response->getSignUrl();
+        // wait for callback with signature_request_sent
+        // 
+        // Grab the signature ID for the signature page that will be embedded in the page
+        $signatures = $response->getSignatures();
+        $signature_id = $signatures[0]->getId();
 
-// call the html page with the embedded.js lib and HelloSign.open()
-include('signerpage.php');
+        // Retrieve the URL to sign the document
+        $response = $client->getEmbeddedSignUrl($signature_id);
 
-skip:
-if ($uploadOk == 0) {
-    echo '<br />';
-    echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
-}
-?>
+        // Store it to use with the embedded.js HelloSign.open() call
+        $sign_url = $response->getSignUrl();
+
+        // call the html page with the embedded.js lib and HelloSign.open()
+        include('signerpage.php');
+
+        skip:
+        if ($uploadOk == 0) {
+            echo '<br />';
+            echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
+        }
+        ?>
+    </body>
+</html>

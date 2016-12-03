@@ -64,11 +64,11 @@ $response = $client->getEmbeddedSignUrl($signature_id);
 $sign_url = $response->getSignUrl();
 
 // call the html page with the embedded.js lib and HelloSign.open()
-include('signtest2.php');
+include('signerpage.php');
 
 skip:
 if ($uploadOk == 0) {
     echo '<br />';
-    echo '<a href="simpleCMS.php">GO HOME YOU ARE DRUNK</a>';
+    echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
 }
 ?>

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-        <title>Simple CMS with PHP</title>
+        <title>Simple PHP Example</title>
 
         <link rel="stylesheet" type="text/css" href="newcss.css" />
         <style type="text/css">

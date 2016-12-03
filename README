@@ -1,13 +1,22 @@
-                PHP-EXAMPLE
+                SIMPLE-PHP-EXAMPLE
 
 What is it?
 -----------
 
-PHP is just a quick and dirty tool which HelloSign API Support reps
-could use to test some of HelloSign's embedded API functionality.
+SIMPLE-PHP-EXAMPLE is just a quick and dirty tool which HelloSign
+API Support reps could use to test some of HelloSign's embedded API
+functionality.
 
-I also modify this quite a bit to test specific bugs, and to pass
-complex bug examples to my dev team.
+How can I use it?
+-----------
+To run this locally, download (and remember the location), save
+your API Key as HS_APIKEY_PROD and one of your client ids as
+HS_CLIENT_ID_PROD as environment variables, and spin up a
+webserver from this location like this: $ php -S localhost:8080
+(you could choose another port if you're already using 8080).
+
+Then you could modify this code locally for any of your tests,
+and submit a PR if you want to contribute to this repo.
 
 Contacts
 -----------

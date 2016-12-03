@@ -88,11 +88,11 @@ $response = $client->getEmbeddedSignUrl($signature_id);
 // Store it to use with the embedded.js HelloSign.open() call
 $sign_url = $response->getSignUrl();
 
-include('bugsigntest.php');
+include('bugsignerpage.php');
 skip:
     // skip loop so this doesn't run when skip isn't used
 if ($uploadOk === 0) {
     echo '<br />';
-    echo '<a href="simpleCMS.php">GO HOME YOU ARE DRUNK</a>';
+    echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
 }
 ?>

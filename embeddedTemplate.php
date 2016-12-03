@@ -59,12 +59,12 @@ $new_template_id = $response->getId(); //not really using this right now
 $sign_url = $response->getEditUrl();
 $is_embedded_draft = $response->isEmbeddedDraft();
 
-include ('signtest2.php');
+include ('signerpage.php');
 
 skip:
 // skip loop so this doesn't run when skip isn't used
 if ($uploadOk == 0) {
     echo '<br />';
-    echo '<a href="simpleCMS.php">GO HOME YOU ARE DRUNK</a>';
+    echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
 }
 ?>

@@ -50,5 +50,5 @@ echo '<br />';
 echo count($templatefields->custom_fields);
 
 echo '<br />';
-echo '<a href="simpleCMS.php">GO HOME YOU ARE DRUNK</a>';
+echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
 ?>

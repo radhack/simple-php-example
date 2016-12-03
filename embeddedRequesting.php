@@ -42,11 +42,11 @@ $response = $client->createUnclaimedDraft($draft_request);
 $sign_url = $draft_request->getClaimUrl();
 
 // call the html page with the embedded.js lib and HelloSign.open()
-include('signtest2.php');
+include('signerpage.php');
 skip:
 // skip loop so this doesn't run when skip isn't used
 if ($uploadOk == 0) {
     echo '<br />';
-    echo '<a href="simpleCMS.php">GO HOME YOU ARE DRUNK</a>';
+    echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
 }
 ?>

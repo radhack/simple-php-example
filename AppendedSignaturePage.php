@@ -14,8 +14,8 @@
     </head>
     <body>
         <?php
-        // require_once 'vendor/autoload.php';
-        require_once('../vendor/autoload.php');
+        require_once 'vendor/autoload.php';
+        // require_once('../vendor/autoload.php');
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used

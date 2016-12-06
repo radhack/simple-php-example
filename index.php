@@ -10,9 +10,9 @@
         <link rel="stylesheet" type="text/css" href="newcss.css" />
         <style type="text/css">
             body {
-            background-color: #aaa;
-            margin: 0;
-            padding: 0;
+                background-color: #aaa;
+                margin: 0;
+                padding: 0;
 
             }
             div {
@@ -34,73 +34,90 @@
                     padding: 0px;
                 }
             }
-            </style>
+        </style>
     </head>
     <body>
         <div class="entry-content">
             <h1>Have a look at these <i>crazy</i> embedded examples!</h1>
-        <!-- this is an embedded template page -->
-        <form action="/embeddedTemplate.php" method="post" enctype="multipart/form-data">        
-            <fieldset>
-                <br />
-                <input type="submit" value="Template Creation"/>
-                <br />
-                <input type="file" name="uploadedTemplateFile" id="uploadedTemplateFile"/>
-                <p>Create a template</p>
-            </fieldset>
-        </form>
-        <!-- this is creating an embedded signature request using text tags -->
-        <form action="/signatureRequestTextTags.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <br />
-                <input type="submit" value="Text Tags are cool"/>
-                <br />
-                <input type="file" name="uploadedTextTags" id="uploadedTextTags"/>
-                <p>Sign a signature request that uses text tags</p>
-                <p>NOTE - use a text tags pdf with only one signer!</p>
-            </fieldset>
-        </form>
-        <!-- this is a standard sig request with an appended signature page -->
-        <form action="/AppendedSignaturePage.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <br />
-                <input type="submit" value="Easy as easy gets"/>
-                <br /> 
-                <input type="file" name="uploadedfile" id="uploadedfile"/>   
-                <p>Sign a signature request that uses an appended signature page</p>
-            </fieldset>
-        </form>
-        <!-- this is an embedded requesting page -->
-        <form action="/embeddedRequesting.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <br />
-                <input type="submit" value="Requesting"/>
-                <br />
-                <input type="file" name="requestingFile" id="requestingFile"/>
-            </fieldset>
-            <p>Create a signature request that'll send a HelloSign email to the signer(s)</p>
-        </form>
-        <!-- this is an embedded requesting page with embedded signing -->
-        <form action="/embeddedRequestingEmbeddedSigning.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <br />
-                <input type="submit" value="Requesting for Embedded Signing"/>
-                <br />
-                <input type="file" name="requestingFileEmbSig" id="requestingFileEmbSig"/>
-            </fieldset>            
-            <p>Create a signature request that'll be used for embedded signing</p>
-        </form>
-        <!-- this for testing bugs -->
-        <form action="/bugstesting.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <br />
-                <input type="submit" value="Bug Testing Only"/>
-                <br />
-                <input type="file" name="BugTestingOnly" id="BugTestingOnly"/>
-            </fieldset> 
-            <p>Use For Bug Testing Only - setup for bug</p>
-        </form>
-    </div>
+            <h2> These are mobile or desktop friendly</h2>
+            <!-- this is creating an embedded signature request using text tags -->
+            <form action="/signatureRequestTextTags.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <input type="submit" value="Text Tags are cool"/>
+                    <br />
+                    <input type="file" name="uploadedTextTags" id="uploadedTextTags"/>
+                    <p>Sign a signature request that uses text tags</p>
+                    <p>NOTE - use a text tags pdf with only one signer!</p>
+                </fieldset>
+            </form>
+
+            <!-- this is a standard sig request with an appended signature page -->
+            <form action="/AppendedSignaturePage.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Easy as easy gets"/>
+                    <br /> 
+                    <input type="file" name="uploadedfile" id="uploadedfile"/>   
+                    <p>Sign a signature request that uses an appended signature page</p>
+                </fieldset>
+            </form>
+
+            <!-- this for embedded signing with template -->
+            <form action="/signatureRequestWithTemplate.php">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Embedded Signature With Template"/>
+                    <br />
+                </fieldset> 
+                <p>The template's hardcoded and setup to trigger a specific response <br /></p>
+                <p>but you're welcome to check the template out!<br /></p>
+            </form>
+            
+            <h2>These are only desktop friendly</h2>
+            
+            <!-- this is an embedded template page -->
+            <form action="/embeddedTemplate.php" method="post" enctype="multipart/form-data">        
+                <fieldset>
+                    <input type="submit" value="Template Creation"/>
+                    <br />
+                    <input type="file" name="uploadedTemplateFile" id="uploadedTemplateFile"/>
+                    <p>Create a template</p>
+                </fieldset>
+            </form>
+
+            <!-- this is an embedded requesting page -->
+            <form action="/embeddedRequesting.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Requesting"/>
+                    <br />
+                    <input type="file" name="requestingFile" id="requestingFile"/>
+                </fieldset>
+                <p>Create a signature request that'll send a HelloSign email to the signer(s)</p>
+            </form>
+            
+            <!-- this is an embedded requesting page with embedded signing -->
+            <form action="/embeddedRequestingEmbeddedSigning.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Requesting for Embedded Signing"/>
+                    <br />
+                    <input type="file" name="requestingFileEmbSig" id="requestingFileEmbSig"/>
+                </fieldset>            
+                <p>Create a signature request that'll be used for embedded signing</p>
+            </form>
+
+            <!-- this for testing bugs -->
+            <form action="/bugstesting.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Bug Testing Only"/>
+                    <br />
+                    <input type="file" name="BugTestingOnly" id="BugTestingOnly"/>
+                </fieldset> 
+                <p>Use For Bug Testing Only - setup for bug</p>
+            </form>            
+        </div>
         <p><br /><br /><small>Thanks for playing!</small></p>
     </body>
 </html>

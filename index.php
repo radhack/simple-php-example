@@ -84,6 +84,17 @@
                     <p>Create a template</p>
                 </fieldset>
             </form>
+            
+            <!-- this is an edit embedded template page -->
+            <form action="/editEmbeddedTemplate.php" method="post" enctype="multipart/form-data">        
+                <fieldset>
+                    <br />
+                    <input type="text" name="templateID" id="templateID"/>
+                    <br />
+                    <input type="submit" value="Edit An Embedded Template"/>
+                    <p>Edit an embedded template</p>
+                </fieldset>
+            </form>
 
             <!-- this is an embedded requesting page -->
             <form action="/embeddedRequesting.php" method="post" enctype="multipart/form-data">

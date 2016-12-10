@@ -9,7 +9,7 @@
         <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
         <!--this one below is the one they were using - I now think it's not related to the issue-->
         <!--<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2.0,user-scalable=1" />--> 
-        <title>Signing Test</title>
+        <title>Embedded Examples</title>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
         <link rel="stylesheet" type="text/css" href="newcss.css" />
@@ -37,7 +37,7 @@
                             console.log(eventData);
                             window.location = "index.php";
                         } else if (eventData.event == HelloSign.EVENT_CANCELED) {
-                            alert("Signature Request Canceled And Stuff!");
+                            alert("Event Canceled And Stuff!");
                             console.log(eventData);
                             window.location = "index.php";
                         } else if (eventData.event == HelloSign.EVENT_ERROR) {
@@ -49,7 +49,7 @@
                             console.log(eventData);
                             window.location = "index.php";
                         } else if (eventData.event == HelloSign.EVENT_TEMPLATE_CREATED) {
-                            alert("Template Created And Stuff!");
+                            window.alert("Template id <?php echo $template_id ?> created!");
                             console.log(eventData);
                             window.location = "index.php";
                         }

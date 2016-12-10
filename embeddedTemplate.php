@@ -69,7 +69,7 @@
 
         $response = $client->createEmbeddedDraft($request);
 
-        $new_template_id = $response->getId(); //not really using this right now
+        $template_id = $response->getId();
         $sign_url = $response->getEditUrl();
         $is_embedded_draft = $response->isEmbeddedDraft();
 

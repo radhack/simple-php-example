@@ -1,22 +1,31 @@
 <?php
 
-//function askForRequestedArguments() {
-//    $postArray = ($tmp = filter_input_array(INPUT_POST)) ? $tmp : Array();
-//    return $postArray;
-//}
-function debug_to_console($data) {
+//function callbackHandler () {
+echo '<a href="index.php">GO HOME YOU ARE DRUNK<br /></a>';
 
-    if (is_array($data))
-        $output = "<script>console.log( 'Debug Objects: " . implode(',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+$data = json_decode($_POST['json']);
+require_once 'vendor/autoload.php';
+$api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
+// Get the event type.
+$event_type = $data->event->event_type;
+$signature_request_id = $data->signature_request->signature_request_id;
 
-    echo $output;
+// The signature_request_all_signed event is called whenever the signature
+// request is completely signed by all signees, HelloSign has processed
+// the document and has it available for download.
+if ($event_type == 'signature_request_all_signed') {
+    $client = new HelloSign\Client($api_key);
+// Here you define where the file should download to. This should be
+// customized to your app's needs.
+    $file_path = "/tmp/{$signature_request_id}.pdf";
+    $client->getFiles($signature_request_id, $file_path, 'pdf');
 }
 
-foreach ($_POST as $param_name => $param_val) {
-    debug_to_console("Param: $param_name; Value: $param_val<br />\n");
-}
-
-
+// Always be sure to return this response so that HelloSign knows
+// that your app processed the event successfully. Otherwise, HelloSign
+// will assume it failed and will retry a few more times.
+//    returnValue("Hello API Event Received");
+//    return "Hello API Event Received";
 echo 'Hello API Event Received';
+//};
+?>

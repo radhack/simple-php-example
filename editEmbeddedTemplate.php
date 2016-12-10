@@ -12,6 +12,12 @@
     </head>
     <body>
         <?php
+        echo '<a href="index.php">GO HOME YOU ARE DRUNK<br /></a>';
+        echo 'just kidding - in this case, this won\'t work<br />';
+        echo 'until the PHP SDK is updated. For now, you\'ll<br />';
+        echo 'have to just go back to the homepage and wait. <br />';
+        echo 'sorry!';
+        
         require_once 'vendor/autoload.php';
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';

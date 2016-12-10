@@ -1,6 +1,5 @@
 <?php
 
-//function callbackHandler () {
 echo '<a href="index.php">GO HOME YOU ARE DRUNK<br /></a>';
 
 $data = json_decode($_POST['json']);
@@ -24,8 +23,5 @@ if ($event_type == 'signature_request_all_signed') {
 // Always be sure to return this response so that HelloSign knows
 // that your app processed the event successfully. Otherwise, HelloSign
 // will assume it failed and will retry a few more times.
-//    returnValue("Hello API Event Received");
-//    return "Hello API Event Received";
 echo 'Hello API Event Received';
-//};
 ?>

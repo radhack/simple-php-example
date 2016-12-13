@@ -33,7 +33,7 @@ if ($event_type == 'signature_request_all_signed') {
     $pass = $sendgrid_apikey;
 
     $params = array(
-        'to' => "radhack242+signaturerequestallsigned@gmail.com",
+        'to' => "radhack242+$event_type@gmail.com",
         'toname' => "Signature Request All Signed",
         'from' => "radhack242@gmail.com",
         'fromname' => "Simple PHP",
@@ -71,13 +71,169 @@ if ($event_type == 'callback_test') {
     $pass = $sendgrid_apikey;
 
     $params = array(
-        'to' => "radhack242+callbacktest@gmail.com",
+        'to' => "radhack242+$event_type@gmail.com",
         'toname' => "Callback Test",
         'from' => "radhack242@gmail.com",
         'fromname' => "Simple PHP",
         'subject' => "$event_type received",
         'text' => "$event_type was received at $event_time",
         'html' => "<strong>I'm HTML!</strong><br />And I like pudding!<br />$event_type was received at $event_time",
+    );
+
+    $request = $url . 'api/mail.send.json';
+
+// Generate curl request
+    $session = curl_init($request);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+    curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+// Tell curl to use HTTP POST
+    curl_setopt($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+    curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+    curl_setopt($session, CURLOPT_HEADER, false);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+    $response = curl_exec($session);
+    curl_close($session);
+
+// print everything out
+    print_r($response);
+}
+
+if ($event_type == 'signature_request_sent') {
+    $signature_request_id = $data->signature_request->signature_request_id;
+    $event_time = $data->event->event_time;
+    $sendgrid = new SendGrid($sendgrid_apikey);
+    $url = 'https://api.sendgrid.com/';
+    $pass = $sendgrid_apikey;
+
+    $params = array(
+        'to' => "radhack242+$event_type@gmail.com",
+        'toname' => "Signature Request Sent",
+        'from' => "radhack242@gmail.com",
+        'fromname' => "Simple PHP",
+        'subject' => "$event_type received",
+        'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
+    );
+
+    $request = $url . 'api/mail.send.json';
+
+// Generate curl request
+    $session = curl_init($request);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+    curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+// Tell curl to use HTTP POST
+    curl_setopt($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+    curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+    curl_setopt($session, CURLOPT_HEADER, false);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+    $response = curl_exec($session);
+    curl_close($session);
+
+// print everything out
+    print_r($response);
+}
+
+if ($event_type == 'file_error') {
+    $signature_request_id = $data->signature_request->signature_request_id;
+    $event_time = $data->event->event_time;
+    $sendgrid = new SendGrid($sendgrid_apikey);
+    $url = 'https://api.sendgrid.com/';
+    $pass = $sendgrid_apikey;
+
+    $params = array(
+        'to' => "radhack242+$event_type@gmail.com",
+        'toname' => "Signature Request Sent",
+        'from' => "radhack242@gmail.com",
+        'fromname' => "Simple PHP",
+        'subject' => "$event_type received",
+        'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
+    );
+
+    $request = $url . 'api/mail.send.json';
+
+// Generate curl request
+    $session = curl_init($request);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+    curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+// Tell curl to use HTTP POST
+    curl_setopt($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+    curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+    curl_setopt($session, CURLOPT_HEADER, false);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+    $response = curl_exec($session);
+    curl_close($session);
+
+// print everything out
+    print_r($response);
+}
+
+if ($event_type == 'unknown_error') {
+    $signature_request_id = $data->signature_request->signature_request_id;
+    $event_time = $data->event->event_time;
+    $sendgrid = new SendGrid($sendgrid_apikey);
+    $url = 'https://api.sendgrid.com/';
+    $pass = $sendgrid_apikey;
+
+    $params = array(
+        'to' => "radhack242+$event_type@gmail.com",
+        'toname' => "Signature Request Sent",
+        'from' => "radhack242@gmail.com",
+        'fromname' => "Simple PHP",
+        'subject' => "$event_type received",
+        'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
+    );
+
+    $request = $url . 'api/mail.send.json';
+
+// Generate curl request
+    $session = curl_init($request);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+    curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+// Tell curl to use HTTP POST
+    curl_setopt($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+    curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+    curl_setopt($session, CURLOPT_HEADER, false);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+    $response = curl_exec($session);
+    curl_close($session);
+
+// print everything out
+    print_r($response);
+}
+
+if ($event_type == 'signature_request_email_bounce') {
+    $signature_request_id = $data->signature_request->signature_request_id;
+    $event_time = $data->event->event_time;
+    $sendgrid = new SendGrid($sendgrid_apikey);
+    $url = 'https://api.sendgrid.com/';
+    $pass = $sendgrid_apikey;
+
+    $params = array(
+        'to' => "radhack242+$event_type@gmail.com",
+        'toname' => "Signature Request Sent",
+        'from' => "radhack242@gmail.com",
+        'fromname' => "Simple PHP",
+        'subject' => "$event_type received",
+        'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
     );
 
     $request = $url . 'api/mail.send.json';

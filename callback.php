@@ -11,12 +11,12 @@ $sendgrid_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY')
 
 // Get the event type.
 $event_type = $data->event->event_type;
-// $reported_app = $data->event->event_metadata->reported_for_app_id;
+$reported_app = $data->event->event_metadata->reported_for_app_id;
 
 // The signature_request_all_signed event is called whenever the signature
 // request is completely signed by all signees, HelloSign has processed
 // the document and has it available for download.
-while ($reported_app === 'd7219512693825facdd9241f458decf2') {
+if ($reported_app === 'd7219512693825facdd9241f458decf2') {
     if ($event_type === 'signature_request_all_signed') {
         $client = new HelloSign\Client($api_key);
         $signature_request_id = $data->signature_request->signature_request_id;
@@ -251,8 +251,6 @@ while ($reported_app === 'd7219512693825facdd9241f458decf2') {
 
         // print everything out
         print_r($response);
-    } else {
-        end;
     }
 }
 

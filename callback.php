@@ -16,7 +16,7 @@ $reported_app = $data->event->event_metadata->reported_for_app_id;
 // The signature_request_all_signed event is called whenever the signature
 // request is completely signed by all signees, HelloSign has processed
 // the document and has it available for download.
-while ($reported_app === 'd7219512693825facdd9241f458decf2') {
+if ($reported_app === 'afedad951b68dc42bfbd930e81d97175') {
     if ($event_type === 'signature_request_all_signed') {
         $client = new HelloSign\Client($api_key);
         $signature_request_id = $data->signature_request->signature_request_id;
@@ -175,9 +175,7 @@ while ($reported_app === 'd7219512693825facdd9241f458decf2') {
 
         // print everything out
         print_r($response);
-    }
-
-    if ($event_type === 'unknown_error') {
+    } elseif ($event_type === 'unknown_error') {
         $signature_request_id = $data->signature_request->signature_request_id;
         $event_time = $data->event->event_time;
         $sendgrid = new SendGrid($sendgrid_apikey);
@@ -251,6 +249,8 @@ while ($reported_app === 'd7219512693825facdd9241f458decf2') {
 
         // print everything out
         print_r($response);
+    } else {
+        echo "not yet supported";
     }
 }
 

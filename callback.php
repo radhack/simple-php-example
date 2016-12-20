@@ -11,7 +11,7 @@ $sendgrid_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY')
 
 // Get the event type.
 $event_type = $data->event->event_type;
-$reported_app = $data->event->event_metadata->reported_for_app_id;
+// $reported_app = $data->event->event_metadata->reported_for_app_id;
 
 // The signature_request_all_signed event is called whenever the signature
 // request is completely signed by all signees, HelloSign has processed

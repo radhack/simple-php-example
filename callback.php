@@ -251,6 +251,8 @@ if ($reported_app === 'd7219512693825facdd9241f458decf2') {
 
         // print everything out
         print_r($response);
+    } else {
+        echo "not yet supported";
     }
 }
 

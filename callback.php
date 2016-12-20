@@ -175,9 +175,7 @@ if ($reported_app === 'd7219512693825facdd9241f458decf2') {
 
         // print everything out
         print_r($response);
-    }
-
-    if ($event_type === 'unknown_error') {
+    } elseif ($event_type === 'unknown_error') {
         $signature_request_id = $data->signature_request->signature_request_id;
         $event_time = $data->event->event_time;
         $sendgrid = new SendGrid($sendgrid_apikey);

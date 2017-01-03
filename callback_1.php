@@ -21,6 +21,8 @@ if ($data->Transaction->IsInbound === TRUE ) {
         $event_time = $data->Transaction->CreatedAt;
         $fax_guid = $data->Transaction->Guid;
         $num_pages_billed = $data->Transaction->NumPagesBilled;
+        $from = $data->Transaction->From;
+        $to = $data->Transaction->To;
         $sendgrid = new SendGrid($sendgrid_apikey);
         $url = 'https://api.sendgrid.com/';
         $pass = $sendgrid_apikey;
@@ -31,7 +33,7 @@ if ($data->Transaction->IsInbound === TRUE ) {
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
             'subject' => "Inbound Fax received",
-            'html' => "<strong>$fax_guid</strong><br />Is the fax guid<br />$num_pages_billed is the number of pages billed, and it was received at $event_time<br />",
+            'html' => "<strong>$fax_guid</strong><br />Is the fax guid<br />$num_pages_billed is the number of pages billed, and it was received at $event_time.<br />$from is the sending number, and the fax was sent to $to<br />",
         );
 
         $request = $url . 'api/mail.send.json';
@@ -62,6 +64,8 @@ if ($data->Transaction->IsInbound === TRUE ) {
         $event_time = $data->Transaction->CreatedAt;
         $fax_guid = $data->Transaction->Guid;
         $num_pages_billed = $data->Transaction->NumPagesBilled;
+        $from = $data->Transaction->From;
+        $to = $data->Transaction->To;
         $sendgrid = new SendGrid($sendgrid_apikey);
         $url = 'https://api.sendgrid.com/';
         $pass = $sendgrid_apikey;
@@ -72,7 +76,7 @@ if ($data->Transaction->IsInbound === TRUE ) {
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
             'subject' => "Outbound Fax sent",
-            'html' => "<strong>$fax_guid</strong><br />Is the fax guid<br />$num_pages_billed is the number of pages billed, and it was received at $event_time<br />",
+            'html' => "<strong>$fax_guid</strong><br />Is the fax guid<br />$num_pages_billed is the number of pages billed, and it was received at $event_time<br />$from is the sending number, and the fax was sent to $to<br />",
         );
 
         $request = $url . 'api/mail.send.json';
@@ -99,6 +103,8 @@ if ($data->Transaction->IsInbound === TRUE ) {
     } else {
         $event_time = $data->Transaction->CreatedAt;
         $fax_guid = $data->Transaction->Guid;
+        $from = $data->Transaction->From;
+        $to = $data->Transaction->To;
         $sendgrid = new SendGrid($sendgrid_apikey);
         $url = 'https://api.sendgrid.com/';
         $pass = $sendgrid_apikey;
@@ -109,7 +115,7 @@ if ($data->Transaction->IsInbound === TRUE ) {
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
             'subject' => "Unknown HelloFax Callback event received",
-            'html' => "The event was received at $event_time and $fax_guid is the guid",
+            'html' => "The event was received at $event_time and $fax_guid is the guid<br />$from is the sending number, and the fax was sent to $to<br />",
         );
 
         $request = $url . 'api/mail.send.json';

@@ -3,14 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Appended Signature Page</title>
-<!--        <link rel="stylesheet" type="text/css" href="newcss.css" />
+        <link rel="stylesheet" type="text/css" href="newcss.css" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
         <link rel="icon" type="image/png" href="/favicon-16x16.png"/>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg"/>-->
+        <link rel="mask-icon" href="/safari-pinned-tab.svg"/>
     </head>
     <body>
         <?php
@@ -53,8 +53,8 @@
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner('testing@testing.com', 'Something');
+        $request->setAllowDecline(true);
         $request->addFile("$target_file");
-        //$request->addFile("nda.pdf");
 
         rename($target_file, "$target_file.embSigReq");
         // Turn it into an embedded request
@@ -73,8 +73,7 @@
         // Store it to use with the embedded.js HelloSign.open() call
         $sign_url = $response->getSignUrl();
 
-        //include('signerpage.php');
-        include('bugsignerpage1.php');
+        include('signerpage.php');
         skip:
         // skip loop so this doesn't run when skip isn't used
         if ($uploadOk === 0) {

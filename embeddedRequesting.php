@@ -51,6 +51,7 @@
         //$request->setHideTextTags(true);
         //$request->setUseTextTags(true);
         $request->addFile("$target_file");
+        $request->setAllowDecline(true);
         $draft_request = new HelloSign\UnclaimedDraft($request, $client_id);
         $response = $client->createUnclaimedDraft($draft_request);
         $sign_url = $draft_request->getClaimUrl();

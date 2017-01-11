@@ -53,7 +53,7 @@
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner('testing@testing.com', 'Something');
-        $request->setAllowDecline(true);
+        // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
         $request->addFile("$target_file");
 
         rename($target_file, "$target_file.embSigReq");

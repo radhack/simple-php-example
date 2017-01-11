@@ -51,7 +51,7 @@
         //$request->setHideTextTags(true);
         //$request->setUseTextTags(true);
         $request->addFile("$target_file");
-        $request->setAllowDecline(true);
+        // $request->setAllowDecline(true); //uncomment this when allowDecline is built into the PHP SDK
         $draft_request = new HelloSign\UnclaimedDraft($request, $client_id);
         $response = $client->createUnclaimedDraft($draft_request);
         $sign_url = $draft_request->getClaimUrl();

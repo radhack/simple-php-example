@@ -38,8 +38,8 @@
     </head>
     <body>
         <div class="entry-content">
-            <h1>Have a look at these <i>crazy</i> embedded examples!</h1>
-            <h2> These are mobile or desktop friendly</h2>
+            <h1>Have a look at these <i>awesome</i> embedded examples!</h1>
+            <h2> These are mobile or pc friendly</h2>
             <!-- this is creating an embedded signature request using text tags -->
             <form action="/signatureRequestTextTags.php" method="post" enctype="multipart/form-data">
                 <fieldset>
@@ -47,7 +47,7 @@
                     <br />
                     <input type="file" name="uploadedTextTags" id="uploadedTextTags"/>
                     <p>Sign a signature request that uses text tags</p>
-                    <p>NOTE - use a text tags pdf with only one signer!</p>
+                    <p>NOTE - use a text tags pdf with only <b>one</b> signer!</p>
                 </fieldset>
             </form>
 
@@ -69,11 +69,11 @@
                     <input type="submit" value="Embedded Signature With Template"/>
                     <br />
                 </fieldset> 
-                <p>The template's hardcoded and setup to trigger a specific response <br /></p>
+                <p>The template's hardcoded and setup to trigger a specific response<br /></p>
                 <p>but you're welcome to check the template out!<br /></p>
             </form>
             
-            <h2>These are only desktop friendly</h2>
+            <h2>These are only pc friendly</h2>
             
             <!-- this is an embedded template page -->
             <form action="/embeddedTemplate.php" method="post" enctype="multipart/form-data">        
@@ -104,7 +104,7 @@
                     <br />
                     <input type="file" name="requestingFile" id="requestingFile"/>
                 </fieldset>
-                <p>Create a signature request that'll send a HelloSign email to the signer(s)</p>
+                <p>Create a signature request that will send a HelloSign email to the signer(s)</p>
             </form>
             
             <!-- this is an embedded requesting page with embedded signing -->
@@ -115,7 +115,7 @@
                     <br />
                     <input type="file" name="requestingFileEmbSig" id="requestingFileEmbSig"/>
                 </fieldset>            
-                <p>Create a signature request that'll be used for embedded signing</p>
+                <p>Create a signature request that will be used for embedded signing</p>
             </form>
 
             <!-- this for testing bugs -->

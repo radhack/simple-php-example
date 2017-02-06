@@ -12,11 +12,8 @@
     </head>
     <body>
         <?php
-        echo '<a href="index.php">GO HOME YOU ARE DRUNK<br /></a>';
-        echo 'just kidding - in this case, this won\'t work<br />';
-        echo 'until the PHP SDK is updated. For now, you\'ll<br />';
-        echo 'have to just go back to the homepage and wait. <br />';
-        echo 'sorry!';
+       echo '<a href="index.php">Home Is Where The Heart Is<br /></a>';
+       echo 'just in this case this doesn\'t work<br />';
         
         require_once 'vendor/autoload.php';
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
@@ -25,7 +22,7 @@
         $client = new HelloSign\Client($api_key);
         $template_id = $_POST['templateID'];
         $response = $client->getEmbeddedEditUrl("$template_id?skip_signer_roles=1&skip_subject_message=1");
-        $sign_url = $response->getEditUrl(); //this will not work until issue https://github.com/HelloFax/hellosign-php-sdk/issues/37 is addressed
+        $sign_url = $response->getEditUrl(); 
 
         include ('signerpage.php');
         ?>

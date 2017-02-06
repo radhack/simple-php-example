@@ -1,9 +1,10 @@
 {
     "require": {
+        "hellosign/hellosign-php-sdk": "3.*@dev",
         "swiftmailer/swiftmailer": "v5.4.4",
         "sendgrid/sendgrid": "5.1.2"
     },
-    "require-dev": {
-        "heroku/heroku-buildpack-php": "*"
-    }
+     "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
 }

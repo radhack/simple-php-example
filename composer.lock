@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7beb8489d064830ae5167a29ee2aa379",
-    "content-hash": "7626c8a8dfeb7ddef4efea5a545a36fd",
+    "content-hash": "e4b2e65717b4a43b0d31552b3cee78cc",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -67,7 +66,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-10-08 15:01:37"
+            "time": "2016-10-08T15:01:37+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -118,7 +117,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-11-18 17:47:58"
+            "time": "2016-11-18T17:47:58+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -176,7 +175,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2016-06-24T23:00:38+00:00"
         },
         {
             "name": "hellosign/hellosign-php-sdk",
@@ -184,12 +183,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/HelloFax/hellosign-php-sdk.git",
-                "reference": "1102ec05125eb18bfafbdf6ddc56c027397918b1"
+                "reference": "cccabce378f0c336e82a78367c5563d4df85777c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/1102ec05125eb18bfafbdf6ddc56c027397918b1",
-                "reference": "1102ec05125eb18bfafbdf6ddc56c027397918b1",
+                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/cccabce378f0c336e82a78367c5563d4df85777c",
+                "reference": "cccabce378f0c336e82a78367c5563d4df85777c",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +214,7 @@
                 }
             ],
             "description": "This is the official PHP wrapper for HelloSign's API",
-            "time": "2016-10-17 18:09:36"
+            "time": "2017-02-02 22:52:11"
         },
         {
             "name": "psr/http-message",
@@ -265,7 +264,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "sendgrid/php-http-client",
@@ -317,7 +316,7 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2016-11-17 22:45:31"
+            "time": "2016-11-17T22:45:31+00:00"
         },
         {
             "name": "sendgrid/sendgrid",
@@ -363,7 +362,7 @@
                 "send",
                 "sendgrid"
             ],
-            "time": "2016-11-17 23:05:01"
+            "time": "2016-11-17T23:05:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -416,7 +415,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-11-24 01:01:23"
+            "time": "2016-11-24T01:01:23+00:00"
         }
     ],
     "packages-dev": [
@@ -462,7 +461,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2016-12-01 08:39:54"
+            "time": "2016-12-01T08:39:54+00:00"
         }
     ],
     "aliases": [],

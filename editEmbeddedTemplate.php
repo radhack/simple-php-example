@@ -13,6 +13,8 @@
     <body>
         <?php
         echo '<a href="index.php">Home Is Where The Heart Is<br /></a>';
+        echo 'This will work when HS updates the PHP SDK to <br />';
+        echo 'work with the template edit_url<a href="https://github.com/HelloFax/hellosign-php-sdk/issues/37">which is here.<br /><a>';
         echo 'just in this case this doesn\'t work<br />';
 
         require_once 'vendor/autoload.php';

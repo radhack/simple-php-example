@@ -73,7 +73,8 @@
         // Store it to use with the embedded.js HelloSign.open() call
         $sign_url = $response->getSignUrl();
 
-        include('signerpage.php');
+//        include('signerpage.php');
+        include('bugsignerpage.php');
         skip:
         // skip loop so this doesn't run when skip isn't used
         if ($uploadOk === 0) {

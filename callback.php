@@ -21,10 +21,10 @@ if ($reported_app === 'd7219512693825facdd9241f458decf2') {
     if ($event_type === 'signature_request_all_signed') {
         $client = new HelloSign\Client($api_key);
         $signature_request_id = $data->signature_request->signature_request_id;
-// Here you define where the file should download to. This should be
-// customized to your app's needs.
-        $file_path = "/tmp/{$signature_request_id}.pdf";
-        $client->getFiles($signature_request_id, $file_path, 'pdf');
+        //get the file_url to pass in the email
+        $get_file = $client->getFiles($signature_request_id);
+        $files_url= $get_file->file_url;
+        error_log($files_url);
 
 // also trigger an email 
 // right now I'm just hardcoding the receipient, but
@@ -41,7 +41,7 @@ if ($reported_app === 'd7219512693825facdd9241f458decf2') {
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
             'subject' => "$event_type received",
-            'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
+            'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />and the files can be downloaded from <a href='$files_url'>this page.</a><br />",
         );
 
         $request = $url . 'api/mail.send.json';

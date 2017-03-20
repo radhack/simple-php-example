@@ -25,7 +25,7 @@
         
         $signature_id = $_GET['signature_id'];
         if ($signature_id == null) {
-            echo 'something went wrong </ br>';
+            echo 'something went wrong <br />';
             echo '<a href = "https://simple-php-example.herokuapp.com">Click here </a>to go home';
         }
         

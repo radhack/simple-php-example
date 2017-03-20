@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bug Testing</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
         <link rel="stylesheet" type="text/css" href="newcss.css" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
@@ -33,31 +33,11 @@
             if (move_uploaded_file($_FILES["BugTestingOnly"]["tmp_name"], $target_file)) {
                 echo "The file " . basename($_FILES["BugTestingOnly"]["name"]) . " has been uploaded. <br />";
                 echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
-                echo "<br /> Thanks for working with me on this! <br />";
+                echo "<br /> I needed a way to test scrolling when the control is on the iframe <br />";
+                echo "<br /> so I'm using this text to create some space, <br />";
+                echo "<br /> similar to how some of our customers use headers and <br />";
+                echo "<br /> borders. <br />";
+                echo "<br /> Thanks again for working with me on this! <br />";
             } else {
                 echo "Sorry, there was an error uploading your file. <br />";
                 $uploadOk = 0;

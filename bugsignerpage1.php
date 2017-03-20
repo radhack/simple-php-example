@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>let's test inside html</title>
-        <script type="text/javascript" src="https://s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
-    </head>
-    <body>
+
         <script>
             HelloSign.init("<?php echo $client_id ?>");
             HelloSign.open({
@@ -40,5 +34,3 @@
                 }
             });
         </script>
-    </body>
-</html>

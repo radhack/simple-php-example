@@ -1,25 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
-        <meta name="viewport" content="width=device-width" />
-        <!--I can't get my page to break like the Acurian one, so can't tell if this fixes their issue or not-->
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
-        <!--this one below is the one they were using - I now think it's not related to the issue-->
-        <!--<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2.0,user-scalable=1" />--> 
-        <title>Embedded Examples</title>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="newcss.css" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" href="/favicon-16x16.png"/>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg"/>
-    </head>
-    <body>
         <div class="object">
             <script>
                 HelloSign.init("<?php echo $client_id ?>");
@@ -28,7 +7,6 @@
                     uxVersion: 2,
                     allowCancel: true,
                     skipDomainVerification: true,
-                    // redirectUrl: "https://b04140a4.ngrok.io/index.php",
                     debug: true,
                     messageListener: function (eventData) {
                         ("Got message data: " + JSON.stringify(eventData));
@@ -63,5 +41,3 @@
                 });
             </script>
         </div>
-    </body>
-</html>

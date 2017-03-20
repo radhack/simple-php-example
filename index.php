@@ -1,7 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -59,6 +57,19 @@
                     <br /> 
                     <input type="file" name="uploadedfile" id="uploadedfile"/>   
                     <p>Sign a signature request that uses an appended signature page</p>
+                </fieldset>
+            </form>
+            
+             <!-- this is a standard sig request with an appended signature page which triggers an email -->
+            <form action="/AppendedSignaturePage_email.php" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Easy as easy gets with email"/>
+                    <input type="email" name="signeremail" id="signeremail" placeholder="Enter Email Here"/>
+                    <br /> 
+                    <input type="file" name="uploadedfile" id="uploadedfileemail"/>
+                    <br />
+                    <p>Enter your email address to receive a link to the embedded signer page</p>
                 </fieldset>
             </form>
 

@@ -1,10 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Embedded Requesting</title>
+        <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
         <link rel="stylesheet" type="text/css" href="newcss.css" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
@@ -28,7 +27,7 @@
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
             goto skip;
-        // if everything is ok, try to upload file
+            // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["requestingFile"]["tmp_name"], $target_file)) {
                 echo "The file " . basename($_FILES["requestingFile"]["name"]) . " has been uploaded.";

@@ -1,5 +1,4 @@
 <?php
-
 require_once 'vendor/autoload.php';
 //$target_dir = "uploads/";
 //$target_file = $target_dir . basename($_FILES["uploadedTemplateFile"]["name"]);

@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Appended Signature Page</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="//s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
         <link rel="stylesheet" type="text/css" href="newcss.css" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
@@ -19,12 +19,12 @@
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-            //if ($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "ppsx" && $imageFileType != "ppt" && $imageFileType != "pptx" && $imageFileType != "tif" && $imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "txt" && $imageFileType != "html" && $imageFileType != "gif") {
-            //    echo "Sorry, only doc, docx, pdf, ppsx, ppt, pptx, tif, jpg, jpeg, png, xls, <br />"
-            //    . "xlsx, txt, html, and gif are allowed at this point <br />";
-            //    $uploadOk = 0;
-            //}
-            // Check if $uploadOk is set to 0 by an error
+        //if ($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "ppsx" && $imageFileType != "ppt" && $imageFileType != "pptx" && $imageFileType != "tif" && $imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "txt" && $imageFileType != "html" && $imageFileType != "gif") {
+        //    echo "Sorry, only doc, docx, pdf, ppsx, ppt, pptx, tif, jpg, jpeg, png, xls, <br />"
+        //    . "xlsx, txt, html, and gif are allowed at this point <br />";
+        //    $uploadOk = 0;
+        //}
+        // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
             goto skip;
@@ -73,8 +73,7 @@
         // Store it to use with the embedded.js HelloSign.open() call
         $sign_url = $response->getSignUrl();
 
-//        include('signerpage.php');
-        include('bugsignerpage.php');
+        include('signerpage.php');
         skip:
         // skip loop so this doesn't run when skip isn't used
         if ($uploadOk === 0) {

@@ -67,7 +67,7 @@
                     <input type="submit" value="Easy as easy gets with email"/>
                     <input type="email" name="signeremail" id="signeremail" placeholder="Enter Email Here"/>
                     <br /> 
-                    <input type="file" name="uploadedfile" id="uploadedfileemail"/>
+                    <input type="file" name="uploadedfile" id="emailfile"/>
                     <br />
                     <p>Enter your email address to receive a link to the embedded signer page</p>
                 </fieldset>

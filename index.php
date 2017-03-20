@@ -60,14 +60,14 @@
                 </fieldset>
             </form>
             
-             <!-- this is a standard sig request with an appended signature page which triggers an email -->
+            <!-- this is a standard sig request with an appended signature page which triggers an email -->
             <form action="/AppendedSignaturePage_email.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <br />
                     <input type="submit" value="Easy as easy gets with email"/>
                     <input type="email" name="signeremail" id="signeremail" placeholder="Enter Email Here"/>
                     <br /> 
-                    <input type="file" name="uploadedfile" id="emailfile"/>
+                    <input type="file" name="uploadedfile" id="uploadedfile"/>
                     <br />
                     <p>Enter your email address to receive a link to the embedded signer page</p>
                 </fieldset>

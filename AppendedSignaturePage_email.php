@@ -15,7 +15,7 @@
         require_once 'vendor/autoload.php';
         $signer_email = $_POST['signeremail'];
         $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["emailfile"]["name"]);
+        $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
         if ($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "ppsx" && $imageFileType != "ppt" && $imageFileType != "pptx" && $imageFileType != "tif" && $imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "txt" && $imageFileType != "html" && $imageFileType != "gif") {
@@ -29,8 +29,8 @@
             goto skip;
             // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($_FILES["emailfile"]["tmp_name"], $target_file)) {
-                echo "The file " . basename($_FILES["emailfile"]["name"]) . " has been uploaded. <br />";
+            if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $target_file)) {
+                echo "The file " . basename($_FILES["uploadedfile"]["name"]) . " has been uploaded. <br />";
             } else {
                 echo "Sorry, there was an error uploading your file. <br />";
                 $uploadOk = 0;

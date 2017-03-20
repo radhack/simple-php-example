@@ -230,7 +230,7 @@
         <table border = \"0\" cellpadding = \"0\" cellspacing = \"0\" class = \"wrapper-mobile\">
         <tbody>
         <tr>
-        <td align = \"center\" bgcolor = \"#1188e6\" style = \"-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; font-size: 16px;\"><a class = \"bulletproof-button\" href = \"http://simple-php-example.herokuapp.com/reviewdocument.php?signature_id=$signature_id\"  style = \"height: px; width: px; font-size: 16px; line-height: px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; padding: 12px 18px 12px 18px; text-decoration: none; color: #ffffff; text-decoration: none; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; border: 1px solid #1288e5; display: inline-block;\">CLICK HERE TO SIGN</a></td>
+        <td align = \"center\" bgcolor = \"#1188e6\" style = \"-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; font-size: 16px;\"><a class = \"bulletproof-button\" href = \"https://simple-php-example.herokuapp.com/reviewdocument.php?signature_id=$signature_id\"  style = \"height: px; width: px; font-size: 16px; line-height: px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; padding: 12px 18px 12px 18px; text-decoration: none; color: #ffffff; text-decoration: none; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; border: 1px solid #1288e5; display: inline-block;\">CLICK HERE TO SIGN</a></td>
         </tr>
         </tbody>
         </table>

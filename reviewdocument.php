@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,6 +24,10 @@
         $client = new HelloSign\Client($api_key);
         
         $signature_id = $_GET['signature_id'];
+        if ($signature_id == null) {
+            echo 'something went wrong </ br>';
+            echo '<a href = "https://simple-php-example.herokuapp.com">Click here </a>to go home';
+        }
         
         // Retrieve the URL to sign the document
         $response = $client->getEmbeddedSignUrl($signature_id);

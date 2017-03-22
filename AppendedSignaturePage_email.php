@@ -42,7 +42,8 @@
         // Get your credentials from environment variables
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_LOCAL') ? getenv('HS_CLIENT_ID_LOCAL') : '';
-        $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY') : '';
+        $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY');
+        echo "$sendgrid_php_apikey";
 
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
@@ -308,16 +309,13 @@
 
         $mailresponse = $sg->client->mail()->send()->post($mail);
         echo $mailresponse->statusCode();
-        echo $mailresponse->headers();
         echo $mailresponse->body();
-        echo '<br />';
-        echo '<a href="index.php">Click here to go home</a>';
+        echo '<br /><a href="index.php">Click here to go home</a>';
 
         skip:
         // skip loop so this doesn't run when skip isn't used
         if ($uploadOk === 0) {
-            echo '<br />';
-            echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
+            echo '<br /><a href="index.php">GO HOME YOU ARE DRUNK</a>';
         }
         ?>
     </body>

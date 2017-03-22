@@ -67,20 +67,13 @@
         // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
         $signature_id = $signatures[0]->getId();
+        echo "$signature_id has been aquired for the link<br />";
 
         // send email region
-        $sendgrid = new SendGrid($sendgrid_php_apikey);
-        $url = 'https://api.sendgrid.com/';
-        $pass = $sendgrid_php_apikey;
-        echo "made it to the sendgrid section<br />";
-
-        $params = array(
-            'to' => "$signer_email",
-            'toname' => "Testing Signer",
-            'from' => "app60213970@heroku.com",
-            'fromname' => "CirqlHR",
-            'subject' => "Please review and sign",
-            'html' => "<html>
+                $from = new SendGrid\Email(null, "test@example.com");
+        $subject = "Hello World from the SendGrid PHP Library!";
+        $to = new SendGrid\Email("Alex", "$signer_email");
+        $content = new SendGrid\Content("text/html", "<html>
                        <head>
                        <title></title>
                        <meta http-equiv = \"Content-Type\" content = \"text/html; charset=utf-8\" />
@@ -307,30 +300,16 @@
                     </table>
                 </div>
             </center>
-        </body>",
-        );
+        </body>
+    </html>");
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-        $request = $url . 'api/mail.send.json';
+        $sg = new \SendGrid($sendgrid_php_apikey);
 
-// Generate curl request
-        $session = curl_init($request);
-// Tell PHP not to use SSLv3 (instead opting for TLS)
-        curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
-        curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_php_apikey));
-// Tell curl to use HTTP POST
-        curl_setopt($session, CURLOPT_POST, true);
-// Tell curl that this is the body of the POST
-        curl_setopt($session, CURLOPT_POSTFIELDS, $params);
-// Tell curl not to return headers, but do return the response
-        curl_setopt($session, CURLOPT_HEADER, false);
-        curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-
-// obtain response
-        $response_email = curl_exec($session);
-        curl_close($session);
-
-// print everything out
-        print_r($response_email);
+        $mailresponse = $sg->client->mail()->send()->post($mail);
+        echo $mailresponse->statusCode();
+        echo $mailresponse->headers();
+        echo $mailresponse->body();
         echo '<br />';
         echo '<a href="index.php">Click here to go home</a>';
 

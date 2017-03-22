@@ -43,20 +43,24 @@
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_LOCAL') ? getenv('HS_CLIENT_ID_LOCAL') : '';
         $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY');
-        //echo "$sendgrid_php_apikey";
+        echo "<br />0";
 
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
+        echo "<br />1";
 
         // Example call with logging for embedded requests
         $request = new HelloSign\SignatureRequest;
+        echo "<br />2";
         $request->enableTestMode();
-        $request->setTitle("Testing");
+        $request->setTitle('Testing');
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner("$signer_email", 'Testing Signer');
+        echo "<br />3";
         // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
         $request->addFile("$target_file");
+        echo "<br />4";
 
         //rename($target_file, "$target_file.embSigReq");
         // Turn it into an embedded request
@@ -64,11 +68,11 @@
 
         // Send it to HelloSign
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
-        echo "1<br />";
+        echo "<br />5";
 
         // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
-        echo "2<br />";
+        echo "<br />6";
         $signature_id = $signatures[0]->getId();
         echo "$signature_id has been aquired for the link<br />";
 

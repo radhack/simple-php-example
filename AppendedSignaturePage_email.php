@@ -74,7 +74,7 @@
         echo "<br />1";
         $to = new SendGrid\Email("Alex", "$signer_email");
         echo "<br />2";
-        $content = new SendGrid\Content("text/html", "<html><head></head><body><p>testing</p></body></html>");
+        $content = new SendGrid\Content("text/html", "<html><head><\/head><body><p>testing<\/p><\/body><\/html>");
         echo "<br />3";
         $mail = new SendGrid\Mail($from, $subject, $to, $content);
         echo "<br />4";

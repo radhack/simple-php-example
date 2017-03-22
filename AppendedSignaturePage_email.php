@@ -14,6 +14,7 @@
         <?php
         require_once 'vendor/autoload.php';
         $signer_email = $_POST['signeremail'];
+        echo "$signer_email"; //doing a reality check here to troubleshoot email issues with heroku and sendgrid
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
@@ -75,7 +76,7 @@
         $params = array(
             'to' => "$signer_email",
             'toname' => "Testing Signer",
-            'from' => "radhack242@gmail.com",
+            'from' => "app60213970@heroku.com",
             'fromname' => "CirqlHR",
             'subject' => "Please review and sign",
             'html' => "<html>

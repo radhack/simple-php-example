@@ -43,7 +43,7 @@
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_LOCAL') ? getenv('HS_CLIENT_ID_LOCAL') : '';
         $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY');
-        echo "$sendgrid_php_apikey";
+        //echo "$sendgrid_php_apikey";
 
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
@@ -58,7 +58,7 @@
         // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
         $request->addFile("$target_file");
 
-        rename($target_file, "$target_file.embSigReq");
+        //rename($target_file, "$target_file.embSigReq");
         // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
 
@@ -71,7 +71,7 @@
         echo "$signature_id has been aquired for the link<br />";
 
         // send email region
-                $from = new SendGrid\Email(null, "test@example.com");
+        $from = new SendGrid\Email(null, "test@example.com");
         $subject = "Hello World from the SendGrid PHP Library!";
         $to = new SendGrid\Email("Alex", "$signer_email");
         $content = new SendGrid\Content("text/html", "<html>

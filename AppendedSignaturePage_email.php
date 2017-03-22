@@ -14,7 +14,7 @@
         <?php
         require_once 'vendor/autoload.php';
         $signer_email = $_POST['signeremail'];
-        echo "$signer_email"; //doing a reality check here to troubleshoot email issues with heroku and sendgrid
+        echo "$signer_email is the email address passed <br />"; //doing a reality check here to troubleshoot email issues with heroku and sendgrid
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
@@ -72,6 +72,7 @@
         $sendgrid = new SendGrid($sendgrid_php_apikey);
         $url = 'https://api.sendgrid.com/';
         $pass = $sendgrid_php_apikey;
+        echo "made it to the sendgrid section<br />";
 
         $params = array(
             'to' => "$signer_email",

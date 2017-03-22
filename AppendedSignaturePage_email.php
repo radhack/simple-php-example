@@ -43,43 +43,37 @@
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
         $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
         $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY');
-        echo "<br />0";
 
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
-        echo "<br />1";
 
         // Example call with logging for embedded requests
         $request = new HelloSign\SignatureRequest;
-        echo "<br />2";
         $request->enableTestMode();
         $request->setTitle('Testing');
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner("$signer_email", 'Testing Signer');
-        echo "<br />3";
         // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
         $request->addFile("$target_file");
-        echo "<br />4";
 
-        //rename($target_file, "$target_file.embSigReq");
         // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
-        echo "<br />5";
+
         // Send it to HelloSign
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
-        echo "<br />6";
 
         // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
-        echo "<br />7";
         $signature_id = $signatures[0]->getId();
-        echo "$signature_id has been aquired for the link<br />";
 
         // send email region
         $from = new SendGrid\Email(null, "test@example.com");
+        echo "<br />0";
         $subject = "Hello World from the SendGrid PHP Library!";
+        echo "<br />1";
         $to = new SendGrid\Email("Alex", "$signer_email");
+        echo "<br />2";
         $content = new SendGrid\Content("text/html", "<html>
                        <head>
                        <title></title>
@@ -309,11 +303,15 @@
             </center>
         </body>
     </html>");
+        echo "<br />3";
         $mail = new SendGrid\Mail($from, $subject, $to, $content);
+        echo "<br />4";
 
         $sg = new \SendGrid($sendgrid_php_apikey);
+        echo "<br />5";
 
         $mailresponse = $sg->client->mail()->send()->post($mail);
+        echo "<br />6";
         echo $mailresponse->statusCode();
         echo $mailresponse->body();
         echo '<br /><a href="index.php">Click here to go home</a>';

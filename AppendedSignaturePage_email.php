@@ -19,11 +19,11 @@
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-        if ($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "ppsx" && $imageFileType != "ppt" && $imageFileType != "pptx" && $imageFileType != "tif" && $imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "txt" && $imageFileType != "html" && $imageFileType != "gif") {
-            echo "Sorry, only doc, docx, pdf, ppsx, ppt, pptx, tif, jpg, jpeg, png, xls, <br />"
-            . "xlsx, txt, html, and gif are allowed at this point <br />";
-            $uploadOk = 0;
-        }
+        //if ($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "ppsx" && $imageFileType != "ppt" && $imageFileType != "pptx" && $imageFileType != "tif" && $imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "txt" && $imageFileType != "html" && $imageFileType != "gif") {
+        //    echo "Sorry, only doc, docx, pdf, ppsx, ppt, pptx, tif, jpg, jpeg, png, xls, <br />"
+        //    . "xlsx, txt, html, and gif are allowed at this point <br />";
+        //    $uploadOk = 0;
+        //}
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
@@ -64,9 +64,11 @@
 
         // Send it to HelloSign
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
+        echo "1<br />";
 
         // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
+        echo "2<br />";
         $signature_id = $signatures[0]->getId();
         echo "$signature_id has been aquired for the link<br />";
 

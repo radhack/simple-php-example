@@ -54,7 +54,7 @@
 
         // Example call with logging for embedded requests
         $request = new HelloSign\SignatureRequest;
-        $request->enableTestMode();
+        //$request->enableTestMode();
         $request->setTitle("Testing");
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');

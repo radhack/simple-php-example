@@ -41,7 +41,7 @@
 
         // Get your credentials from environment variables
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-        $client_id = getenv('HS_CLIENT_ID_LOCAL') ? getenv('HS_CLIENT_ID_LOCAL') : '';
+        $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
         $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY');
         echo "<br />0";
 
@@ -65,14 +65,14 @@
         //rename($target_file, "$target_file.embSigReq");
         // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
-
+        echo "<br />5";
         // Send it to HelloSign
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
-        echo "<br />5";
+        echo "<br />6";
 
         // Grab the signature ID for the signature page that will be embedded in the page
         $signatures = $response->getSignatures();
-        echo "<br />6";
+        echo "<br />7";
         $signature_id = $signatures[0]->getId();
         echo "$signature_id has been aquired for the link<br />";
 

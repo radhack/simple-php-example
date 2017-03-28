@@ -51,6 +51,8 @@
         //$request->setHideTextTags(true);
         //$request->setUseTextTags(true);
         $request->addFile("$target_file");
+        $request->setMessage("Please Sign This, Thanks!");
+        $request->setSubject("Here's the subject, and it's awesome");
         $draft_request = new HelloSign\UnclaimedDraft($request, $client_id);
         $draft_request->setIsForEmbeddedSigning(true);
         $response = $client->createUnclaimedDraft($draft_request);

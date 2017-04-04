@@ -23,6 +23,13 @@
     $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
     $sendgrid_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY') : '';
 
+    //check for validitiy
+    $hash_check_failed = 0; //initialize the flag
+    $callback_event = new HelloSign\Event($data);
+    if ($callback_event->isValid($api_key) == FALSE) {
+        $hash_check_failed = 1;
+        goto invalid_hash;
+    }
 // Get the event type.
     $event_type = $data->event->event_type;
     $reported_app = $data->event->event_metadata->reported_for_app_id;
@@ -364,9 +371,43 @@
             print_r($response);
         }
     }
-// Always be sure to return this response so that HelloSign knows
-// that your app received the event successfully. Otherwise, HelloSign
-// will assume it failed and will retry a few more times.
+    invalid_hash:
+    if ($hash_check_failed == 1) {
+        $sendgrid = new SendGrid($sendgrid_apikey);
+        $url = 'https://api.sendgrid.com/';
+        $pass = $sendgrid_apikey;
+
+        $params = array(
+            'to' => "radhack242@gmail.com",
+            'toname' => "Hash Failed",
+            'from' => "radhack242@gmail.com",
+            'fromname' => "Simple PHP",
+            'subject' => "Hash Check Failed",
+            'html' => "Hash verification failed on the Production app.",
+        );
+
+        $request = $url . 'api/mail.send.json';
+
+// Generate curl request
+        $session = curl_init($request);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+        curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+        curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+// Tell curl to use HTTP POST
+        curl_setopt($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+        curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+        curl_setopt($session, CURLOPT_HEADER, false);
+        curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+        $response = curl_exec($session);
+        curl_close($session);
+
+// print everything out
+        print_r($response);
+    }
     ?>
 </body>
 </html>

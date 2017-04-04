@@ -60,7 +60,7 @@
                 'toname' => "Signature Request All Signed",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />and the files can be downloaded from <a href='$files_url'>this page.</a><br />",
             );
 
@@ -97,7 +97,7 @@
                 'toname' => "Callback Test",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'text' => "$event_type was received at $event_time",
                 'html' => "<strong>I'm HTML!</strong><br />"
                 . "And I like pudding!<br />"
@@ -138,7 +138,7 @@
                 'toname' => "Signature Request Sent",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
             );
 
@@ -175,7 +175,7 @@
                 'toname' => "File Error",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
             );
 
@@ -212,7 +212,7 @@
                 'toname' => "Unknown Error",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
             );
 
@@ -249,7 +249,7 @@
                 'toname' => "Signature Request Email Bounced",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
             );
 
@@ -299,7 +299,7 @@
                 'toname' => "Signature Request Declined",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />"
                 . "Is the signature_request_id<br />"
                 . "$event_type was received at $event_time<br />"
@@ -344,7 +344,7 @@
                 'toname' => "Event Not Setup",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "$event_type received",
+                'subject' => "Prod $event_type received",
                 'html' => "<strong>$signature_request_id</strong><br />Is the signature_request_id<br />$event_type was received at $event_time<br />",
             );
 
@@ -382,7 +382,7 @@
             'toname' => "Hash Failed",
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
-            'subject' => "Hash Check Failed",
+            'subject' => "Prod Hash Check Failed",
             'html' => "Hash verification failed on the Production app.",
         );
 

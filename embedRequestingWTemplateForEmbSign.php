@@ -36,7 +36,7 @@
         $baseReq->setCustomFieldValue("Applicant", "Bobs's the name");
         $baseReq->setRequesterEmailAddress('alex@hellosign.com');
         $baseReq->addMetadata('custom_id', '1234');
-        $request->enableTestMode(); // documentaton says to put this in the EmbeddedSignatureRequest method
+        $baseReq->enableTestMode(); // documentaton says to put this in the EmbeddedSignatureRequest method
         // but that doesn't work - it's not passed to HS when you do that, so moving it here
         // where I know it works.
 

@@ -48,12 +48,6 @@
 
         // call the html page with the embedded.js lib and HelloSign.open()
         include('signerpage.php');
-        skip:
-        // skip loop so this doesn't run when skip isn't used
-        if ($uploadOk == 0) {
-            echo '<br />';
-            echo '<a href="index.php">GO HOME YOU ARE DRUNK</a>';
-        }
         ?>
     </body>
 </html>

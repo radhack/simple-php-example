@@ -38,7 +38,8 @@
         $baseReq->addMetadata('custom_id', '1234');
 
 
-        $request = new HelloSign\EmbeddedSignatureRequest($baseReq, $client_id);
+        $request = new HelloSign\EmbeddedSignatureRequest($baseReq);
+        $request->setClientId($client_id);
         $request->setEmbeddedSigning();
         $request->enableTestMode();
 

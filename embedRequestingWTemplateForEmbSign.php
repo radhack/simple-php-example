@@ -16,7 +16,7 @@
         require_once 'vendor/autoload.php';
         // Get your credentials from environment variables
         $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-        $client_id = getenv('HS_CLIENT_ID_LOCAL') ? getenv('HS_CLIENT_ID_LOCAL') : '';
+        $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
 
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
@@ -38,8 +38,7 @@
         $baseReq->addMetadata('custom_id', '1234');
 
 
-        $request = new HelloSign\EmbeddedSignatureRequest($baseReq);
-        $request->setClientId($client_id);
+        $request = new HelloSign\EmbeddedSignatureRequest($baseReq, $client_id);
         $request->setEmbeddedSigning();
         $request->enableTestMode();
 

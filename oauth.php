@@ -12,7 +12,7 @@
 <body>
     <?php
 //if people find their way here, give them a way to get back home
-    echo '<a href="index.php">Thanks for trying my oauth flow!<br /> No need to any further action, though<br /> you\'re welcome to reach to me at<br />radhack242@gmail.com</a>';
+    echo '<a href="index.php">Thanks for trying my oauth flow!</a><br /> No need to any further action<br />though you\'re welcome to reach to me at<br />radhack242@gmail.com<br />';
 
     require_once 'vendor/autoload.php';
 
@@ -35,7 +35,7 @@
         'toname' => "oAuth Page Hit",
         'from' => "radhack242@gmail.com",
         'fromname' => "oAuth Page was hit",
-        'subject' => "oAuth Page was hit",
+        'subject' => "Prod oAuth Page was hit",
         'html' => "<strong>$oauth_code</strong><br />Is the oauth code<br />$oauth_state is the state.<br />",
     );
 

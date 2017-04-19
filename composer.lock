@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/HelloFax/hellosign-php-sdk.git",
-                "reference": "f534db823f58ef20abf0ae1ad7f57b6fd4e66946"
+                "reference": "262af410c5dd1e05e3f028269312714978c92e75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/f534db823f58ef20abf0ae1ad7f57b6fd4e66946",
-                "reference": "f534db823f58ef20abf0ae1ad7f57b6fd4e66946",
+                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/262af410c5dd1e05e3f028269312714978c92e75",
+                "reference": "262af410c5dd1e05e3f028269312714978c92e75",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +221,7 @@
                 }
             ],
             "description": "This is the official PHP wrapper for HelloSign's API",
-            "time": "2017-02-10 19:31:22"
+            "time": "2017-04-13 02:33:46"
         },
         {
             "name": "psr/http-message",
@@ -327,16 +327,16 @@
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "5.4.0",
+            "version": "5.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "c7bc436f2290c1d57c5b20b50c5e436ea70b43d5"
+                "reference": "bdcdb96a90200113e827699911cb21091a5dd01b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/c7bc436f2290c1d57c5b20b50c5e436ea70b43d5",
-                "reference": "c7bc436f2290c1d57c5b20b50c5e436ea70b43d5",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/bdcdb96a90200113e827699911cb21091a5dd01b",
+                "reference": "bdcdb96a90200113e827699911cb21091a5dd01b",
                 "shasum": ""
             },
             "require": {
@@ -369,22 +369,22 @@
                 "send",
                 "sendgrid"
             ],
-            "time": "2017-03-16T17:19:32+00:00"
+            "time": "2017-04-18T16:27:23+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v120",
+            "version": "v121",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "e0499a7fdffd56f46534a037a6c48d65cef4e645"
+                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/e0499a7fdffd56f46534a037a6c48d65cef4e645",
-                "reference": "e0499a7fdffd56f46534a037a6c48d65cef4e645",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/727aa850a02a7af94c9225237464be8e8c8ff6db",
+                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db",
                 "shasum": ""
             },
             "bin": [
@@ -415,7 +415,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2017-02-20T15:05:49+00:00"
+            "time": "2017-03-27T23:33:27+00:00"
         }
     ],
     "aliases": [],

@@ -72,7 +72,17 @@
                     <p>Enter your email address to receive a link to the embedded signer page</p>
                 </fieldset>
             </form>
-
+            
+            <!-- this for embedded signing with form_fields_per_document -->
+            <form action="/signatureRequestFormFields.php">
+                <fieldset>
+                    <br />
+                    <input type="submit" value="Embedded Signature With Form Fields"/>
+                    <br />
+                </fieldset> 
+                <p>The document and form fields are hardcoded, but you're welcome to check it out!<br /></p>
+            </form>
+            
             <!-- this for embedded signing with template -->
             <form action="/signatureRequestWithTemplate.php">
                 <fieldset>

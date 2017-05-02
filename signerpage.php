@@ -12,8 +12,9 @@
                         ("Got message data: " + JSON.stringify(eventData));
 
                         if (eventData.event == HelloSign.EVENT_SIGNED) {
-                            alert("Signature Request Signed And Stuff!");
-                            console.log(eventData);
+                            HelloSign.close();
+                            console.log(eventData + "is the complete eventData");
+                            console.log(eventData.signature_id + "is the signature_id itself");
                             window.location = "index.php";
                             //HelloSign.close();
                         } else if (eventData.event == HelloSign.EVENT_CANCELED) {

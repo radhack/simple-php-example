@@ -33,22 +33,22 @@
                     array( //document 1
                         array( //component 1
                             "api_id" => "things_1",
-                            "name" => "",
+                            "name" => "Name Here",
                             "type" => "text",
-                            "x" => 225,
-                            "y" => 140,
-                            "width" => 100,
+                            "x" => 220,
+                            "y" => 85,
+                            "width" => 253,
                             "height" => 16,
                             "required" => true,
                             "signer" => 0
                             ),
                             array( //component 2
                             "api_id" => "things_2",
-                            "name" => "",
+                            "name" => "Address Here",
                             "type" => "text",
-                            "x" => 385,
-                            "y" => 140,
-                            "width" => 120,
+                            "x" => 530,
+                            "y" => 85,
+                            "width" => 152,
                             "height" => 16,
                             "required" => true,
                             "signer" => 0
@@ -57,17 +57,18 @@
                             "api_id" => "lotsof_2",
                             "name" => "",
                             "type" => "signature",
-                            "x" => 530,
-                            "y" => 815,
-                            "width" => 150,
+                            "x" => 90,
+                            "y" => 315,
+                            "width" => 223,
                             "height" => 30,
                             "required" => true,
-                            "signer" => 0
+                            "signer" => 0,
+                            "page" => 2,
                             ),
                     ),
                 )
             );
-        $request->addFile("./nda.pdf");
+        $request->addFileUrl("http://www.startupprofessionals.com/linked/non-disclosure-agreement-mutual-generic-blank.pdf");
 
         // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);

@@ -15,7 +15,6 @@
                             HelloSign.close();
                             console.log(eventData.signature_id + "is the signature_id itself");
                             window.location = "index.php";
-                            //HelloSign.close();
                         } else if (eventData.event == HelloSign.EVENT_CANCELED) {
                             alert("Event Canceled And Stuff!");
                             console.log(eventData);

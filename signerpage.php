@@ -13,7 +13,6 @@
 
                         if (eventData.event == HelloSign.EVENT_SIGNED) {
                             HelloSign.close();
-                            console.log(eventData + "is the complete eventData");
                             console.log(eventData.signature_id + "is the signature_id itself");
                             window.location = "index.php";
                             //HelloSign.close();

@@ -14,14 +14,12 @@
     <p>PROCEED TO THE <a href="index.php">HOMEPAGE</a> TO AVOID BOREDOM</p>
     <?php
     require_once 'vendor/autoload.php';
+    include('auth.php');
 
-    $data = json_decode($_POST['json']); //yes I know I shouldn't process the $_POST directly
+    $data = json_decode($_POST['json']);
     if ($data != null) { //only send the response if I'm hit with a POST
         echo 'Hello API Event Received';
     }
-    $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-    $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
-    $sendgrid_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY') : '';
 
     //check for validitiy
     $hash_check_failed = 0; //initialize the flag
@@ -373,6 +371,10 @@
     }
     invalid_hash:
     if ($hash_check_failed == 1) {
+
+        $signature_request_id = $data->signature_request->signature_request_id;
+        $event_time = $data->event->event_time;
+        $event_hash = $data->event->event_hash;
         $sendgrid = new SendGrid($sendgrid_apikey);
         $url = 'https://api.sendgrid.com/';
         $pass = $sendgrid_apikey;
@@ -383,7 +385,11 @@
             'from' => "radhack242@gmail.com",
             'fromname' => "Simple PHP",
             'subject' => "Prod Hash Check Failed",
-            'html' => "Hash verification failed on the Production app.",
+            'html' => "<p>Hash verification failed on the Production app.</p><br />"
+            . "<p><pre>$event_type</pre> is the event type</p><br />"
+                . "<p><pre>$signature_request_id</pre> is the signature request ID</p><br />"
+                . "<p><pre>$event_time</pre> is the event time.</p><br />"
+                . "<p><pre>$event_hash</pre> is the event hash.</p>",
         );
 
         $request = $url . 'api/mail.send.json';

@@ -15,6 +15,188 @@
     <?php
     require_once 'vendor/autoload.php';
     include('auth.php');
+    
+    // ******************
+    // HelloWorks section
+    // ******************
+    
+    if (isset($_SERVER['HTTP_X_HELLOWORKS_SIGNATURE'])) {
+        $json = GuzzleHttp\json_decode(file_get_contents('php://input'));
+        $status = $json->status;
+        $identity = $json->identity;
+        $hw_id = $json->id;
+        $form1_name = $json->forms[0]->name;
+        $form1_url = $json->forms[0]->document->url;
+        $form2_name = $json->forms[1]->name;
+        $form2_url = $json->forms[1]->document->url;
+        $form3_name = $json->forms[2]->name;
+        $form3_url = $json->forms[2]->document->url;
+        
+       // GET the JWT
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.helloworks.com/v2/token/tdUNBn2TrWzVEoFD", //this is the Alex+Booker API key information
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer eW8gYCY2fz9MMnkUcKPP7VbK2GtPNkPUEOnaFqU4",
+                "cache-control: no-cache"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        $parsed = json_decode($response);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+//            echo $parsed->object->value;
+            echo "<br />";
+        }
+
+        $bearer = $parsed->object->value;
+
+//        form1 section
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "$form1_url",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer $bearer",
+                "cache-control: no-cache"
+            ),
+        ));
+
+        $response_pdf = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response_pdf;
+        }
+        
+//        form2 section
+        $curl1 = curl_init();
+
+        curl_setopt_array($curl1, array(
+            CURLOPT_URL => "$form2_url",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer $bearer",
+                "cache-control: no-cache"
+            ),
+        ));
+
+        $response_pdf2 = curl_exec($curl1);
+        $err = curl_error($curl1);
+
+        curl_close($curl1);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response_pdf2;
+        }
+        
+        //        form3 section
+        $curl2 = curl_init();
+
+        curl_setopt_array($curl2, array(
+            CURLOPT_URL => "$form3_url",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer $bearer",
+                "cache-control: no-cache"
+            ),
+        ));
+
+        $response_pdf3 = curl_exec($curl2);
+        $err = curl_error($curl2);
+
+        curl_close($curl2);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response_pdf3;
+        }
+
+        $target_file1 = "$hw_id 1.pdf";
+        file_put_contents("downloaded_files/" . $target_file1, $response_pdf);
+        $target_file2 = "$hw_id 2.pdf";
+        file_put_contents("downloaded_files/" . $target_file2, $response_pdf2);
+        $target_file3 = "$hw_id 3.pdf";
+        file_put_contents("downloaded_files/" . $target_file3, $response_pdf3);
+        $file1_encoded = base64_encode($response_pdf);
+        $file2_encoded = base64_encode($response_pdf2);
+        $file3_encoded = base64_encode($response_pdf3);
+        $to = new SendGrid\Email("HelloWorks Signer", "radhack242@gmail.com");
+        $from = new SendGrid\Email("HelloWorks Platform", "radhack242@gmail.com");
+        $subject = "HelloWorks callback received";
+        $content = new SendGrid\Content("text/html", "<pre>$status</pre> is the status<br /><br />$identity is the email of the signer<br /><pre>$hw_id</pre> is the instance id<br /><pre>$form1_name</pre> is the form name<br /><br /><a href=\"$form1_url\">this</a> is where you can download the form");
+        $attachment = new SendGrid\Attachment();
+        $attachment->setType("application/pdf");
+        $attachment->setDisposition("attachment");
+        $attachment->setFilename($target_file1);
+        $attachment->setContent($file1_encoded);
+        $attachment2 = new SendGrid\Attachment();
+        $attachment2->setType("application/pdf");
+        $attachment2->setDisposition("attachment");
+        $attachment2->setFilename($target_file2);
+        $attachment2->setContent($file2_encoded);
+        $attachment3 = new SendGrid\Attachment();
+        $attachment3->setType("application/pdf");
+        $attachment3->setDisposition("attachment");
+        $attachment3->setFilename($target_file3);
+        $attachment3->setContent($file3_encoded);
+        $email = new SendGrid\Mail($from, $subject, $to, $content);
+        $email->addAttachment($attachment);
+        $email->addAttachment($attachment2);
+        $email->addAttachment($attachment3);
+
+        $sg = new \SendGrid($sendgrid_api_key);
+        $response = $sg->client->mail()->send()->post($email);
+
+        echo $response->statusCode();
+        print_r($response->headers());
+        echo $response->body();
+
+// print everything out
+        print_r($response);
+        $hash_check_failed = 0;
+        goto invalid_hash;
+    }
+    
+    // ******************
+    // HelloSign Callback
+    // ******************
 
     $data = json_decode($_POST['json']);
     if ($data != null) { //only send the response if I'm hit with a POST

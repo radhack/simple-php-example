@@ -18,7 +18,8 @@
  */
 
 // THIS IS THE SETUP FOR CLEARDB,
-// WHICH I'LL NEED FOR THIS TO WORK WITH HERKOKU
+// WHICH I'LL NEED FOR THIS TO WORK WITH HEROKU
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -95,7 +96,7 @@ if (isset($signature_request_id)) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO helloworks VALUES('$hw_email','$hw_name','$hw_sign_url')";
+    $sql = "INSERT INTO helloworks VALUES('$hw_instance_id','$hw_name','$hw_email','$hw_sign_url')";
 
     if ($conn->query($sql) === TRUE) {
         echo "INSERT to helloworks successfull";

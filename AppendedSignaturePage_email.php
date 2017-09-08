@@ -13,6 +13,8 @@
     <body>
         <?php
         require_once 'vendor/autoload.php';
+        include('auth.php');
+        
         $signer_email = $_POST['signeremail'];
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
@@ -38,11 +40,6 @@
             }
         }
 
-        // Get your credentials from environment variables
-        $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-        $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
-        $sendgrid_php_apikey = getenv('SENDGRID_PHP_APIKEY') ? getenv('SENDGRID_PHP_APIKEY') : '';
-
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
 
@@ -53,7 +50,7 @@
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner("$signer_email", 'Testing Signer');
-        // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
+        //$request->setAllowDecline(true); //this isn't a thing yet
         $request->addFile("$target_file");
 
         rename($target_file, "$target_file.embSigReq");
@@ -64,8 +61,11 @@
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
 
         // Grab the signature ID for the signature page that will be embedded in the page
+        $signature_request_id = $response->signature_request_id;
         $signatures = $response->getSignatures();
         $signature_id = $signatures[0]->getId();
+        $createdHow = "appendedSignaturePage_email";
+        include('db.php');
 
         // send email region
         $sendgrid = new SendGrid($sendgrid_php_apikey);

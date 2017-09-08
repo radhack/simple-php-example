@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be470ef03f6b9d5c8ba32badfd47edbd",
+    "content-hash": "90d4f259551e628d459b9a10a2e72425",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.2.3",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006"
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8d6c6cc55186db87b7dc5009827429ba4e9dc006",
-                "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
                 "shasum": ""
             },
             "require": {
@@ -27,8 +27,11 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^4.0 || ^5.0",
                 "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
             },
             "type": "library",
             "extra": {
@@ -66,7 +69,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-02-28T22:50:30+00:00"
+            "time": "2017-06-22T18:50:49+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -190,12 +193,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/HelloFax/hellosign-php-sdk.git",
-                "reference": "262af410c5dd1e05e3f028269312714978c92e75"
+                "reference": "0c0d344b961be17b68a57e79a28fa25e481cc8a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/262af410c5dd1e05e3f028269312714978c92e75",
-                "reference": "262af410c5dd1e05e3f028269312714978c92e75",
+                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/0c0d344b961be17b68a57e79a28fa25e481cc8a4",
+                "reference": "0c0d344b961be17b68a57e79a28fa25e481cc8a4",
                 "shasum": ""
             },
             "require": {
@@ -216,12 +219,12 @@
             ],
             "authors": [
                 {
-                    "name": "Neal O'Mara",
+                    "name": "HelloSign",
                     "email": "apisupport@hellosign.com"
                 }
             ],
             "description": "This is the official PHP wrapper for HelloSign's API",
-            "time": "2017-04-13 02:33:46"
+            "time": "2017-09-06 20:32:41"
         },
         {
             "name": "psr/http-message",
@@ -275,16 +278,16 @@
         },
         {
             "name": "sendgrid/php-http-client",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "f886cd3cf48bafd3c7b28b1ca5c2484f7916cff1"
+                "reference": "bec48e0e2e41331438ba7872805b86c45387178d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/f886cd3cf48bafd3c7b28b1ca5c2484f7916cff1",
-                "reference": "f886cd3cf48bafd3c7b28b1ca5c2484f7916cff1",
+                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/bec48e0e2e41331438ba7872805b86c45387178d",
+                "reference": "bec48e0e2e41331438ba7872805b86c45387178d",
                 "shasum": ""
             },
             "require": {
@@ -323,25 +326,25 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2017-03-02T05:51:19+00:00"
+            "time": "2017-05-05T06:15:41+00:00"
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "5.4.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "bdcdb96a90200113e827699911cb21091a5dd01b"
+                "reference": "b3d6708791f0d69f36c85b1d312344d01bad1bee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/bdcdb96a90200113e827699911cb21091a5dd01b",
-                "reference": "bdcdb96a90200113e827699911cb21091a5dd01b",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/b3d6708791f0d69f36c85b1d312344d01bad1bee",
+                "reference": "b3d6708791f0d69f36c85b1d312344d01bad1bee",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6",
-                "sendgrid/php-http-client": "~3.5"
+                "sendgrid/php-http-client": "~3.7"
             },
             "replace": {
                 "sendgrid/sendgrid-php": "*"
@@ -369,22 +372,22 @@
                 "send",
                 "sendgrid"
             ],
-            "time": "2017-04-18T16:27:23+00:00"
+            "time": "2017-08-15 23:12:58"
         }
     ],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v121",
+            "version": "v124",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db"
+                "reference": "ae364349c513e569d7d4614ab3b1767eb883b858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/727aa850a02a7af94c9225237464be8e8c8ff6db",
-                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/ae364349c513e569d7d4614ab3b1767eb883b858",
+                "reference": "ae364349c513e569d7d4614ab3b1767eb883b858",
                 "shasum": ""
             },
             "bin": [
@@ -415,13 +418,14 @@
                 "nginx",
                 "php"
             ],
-            "time": "2017-03-27T23:33:27+00:00"
+            "time": "2017-09-07T23:07:36+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hellosign/hellosign-php-sdk": 20
+        "hellosign/hellosign-php-sdk": 20,
+        "sendgrid/sendgrid": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -15,6 +15,8 @@
     <body>
         <?php
         require_once 'vendor/autoload.php';
+        include('auth.php');
+        
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["uploadedfile"]["name"]);
         $uploadOk = 1; //this is used if the other if statements are used
@@ -39,10 +41,6 @@
             }
         }
 
-        // Get your credentials from environment variables
-        $api_key = getenv('HS_APIKEY_PROD') ? getenv('HS_APIKEY_PROD') : '';
-        $client_id = getenv('HS_CLIENT_ID_PROD') ? getenv('HS_CLIENT_ID_PROD') : '';
-
         // Instance of a client for you to use for calls
         $client = new HelloSign\Client($api_key);
 
@@ -53,7 +51,7 @@
         $request->setSubject('My First embedded signature request');
         $request->setMessage('Awesome, right?');
         $request->addSigner('testing@testing.com', 'Something');
-        // $request->setAllowDecline(true); // uncomment this when allowDecline is built into the PHP SDK
+//        $request->setAllowDecline(true); //this isn't a thing yet
         $request->addFile("$target_file");
 
         rename($target_file, "$target_file.embSigReq");
@@ -64,8 +62,11 @@
         $response = $client->createEmbeddedSignatureRequest($embedded_request);
 
         // Grab the signature ID for the signature page that will be embedded in the page
+        $signature_request_id = $response->signature_request_id;
         $signatures = $response->getSignatures();
         $signature_id = $signatures[0]->getId();
+        $createdHow = "appendedSignaturePage";
+        include('db.php');
 
         // Retrieve the URL to sign the document
         $response = $client->getEmbeddedSignUrl($signature_id);

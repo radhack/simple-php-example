@@ -256,6 +256,7 @@
         $attachment4->setContent($file4_encoded);
         $email = new SendGrid\Mail($from, $subject, $to, $content);
         $email->personalization[0]->addCC($cc);
+        $email->addAttachment($attachment0);
         $email->addAttachment($attachment1);
         $email->addAttachment($attachment2);
         $email->addAttachment($attachment3);

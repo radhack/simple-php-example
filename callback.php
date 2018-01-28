@@ -22,6 +22,7 @@
     
     if (isset($_SERVER['HTTP_X_HELLOWORKS_SIGNATURE'])) {
         $json = GuzzleHttp\json_decode(file_get_contents('php://input'));
+        $raw_json_for_sendgrid = file_get_contents('php://input');
         $status = $json->status;
         $identity = $json->identity;
         $hw_id = $json->id;
@@ -224,6 +225,7 @@
         $file2_encoded = base64_encode($response_pdf2);
         $file3_encoded = base64_encode($response_pdf3);
         $file4_encoded = base64_encode($response_pdf4);
+        $callback_body = base64_encode($raw_json_for_sendgrid);
         $to = new SendGrid\Email("Alex", "radhack242@gmail.com");
         $cc = new SendGrid\Email("Ram", "rammuthukrishnan7391@gmail.com");
         $from = new SendGrid\Email("HelloWorks Platform", "radhack242@gmail.com");
@@ -254,6 +256,11 @@
         $attachment4->setDisposition("attachment");
         $attachment4->setFilename($target_file4);
         $attachment4->setContent($file4_encoded);
+        $attachment5 = new SendGrid\Attachment();
+        $attachment5->setType("application/json");
+        $attachment5->setDisposition("attachment");
+        $attachment5->setFilename("helloWorksCallbackBody.json");
+        $attachment5->setContent($callback_body); 
         $email = new SendGrid\Mail($from, $subject, $to, $content);
         $email->personalization[0]->addCC($cc);
         $email->addAttachment($attachment0);
@@ -261,6 +268,7 @@
         $email->addAttachment($attachment2);
         $email->addAttachment($attachment3);
         $email->addAttachment($attachment4);
+        $email->addAttachment($attachment5);
 
         $sg = new \SendGrid($sendgrid_api_key);
         $response = $sg->client->mail()->send()->post($email);

@@ -1,6 +1,6 @@
 <?php
 
-$a = session_id();
+$a = session_name();
 if (empty($a)) {
     session_start();
 }

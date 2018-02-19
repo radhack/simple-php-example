@@ -713,7 +713,7 @@
                 'toname' => "HelloFax Fax Inbound",
                 'from' => "radhack242@gmail.com",
                 'fromname' => "Simple PHP",
-                'subject' => "Hash Check Failed and Recorded",
+                'subject' => "Inbound Fax Received",
                 'html' => "<h1>You've Received A Fax!</h1><p>$event_time is the time I received the fax</p><p>$from is who it's from</p><p>$recipient is who it was sent to</p><p>$tranmission_id is the ID of the transmission</p>",
             );
 

@@ -48,7 +48,7 @@
         $request->enableTestMode();
         $request->setRequesterEmail('phptest@example.com');
         //$request->setHideTextTags(true);
-        //$request->setUseTextTags(true);
+        $request->setUseTextTags(true);
         $request->addFile("$target_file");
         // $request->setAllowDecline(true); //uncomment this when allowDecline is built into the PHP SDK
         $draft_request = new HelloSign\UnclaimedDraft($request, $client_id);

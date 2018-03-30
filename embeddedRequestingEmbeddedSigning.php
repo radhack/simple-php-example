@@ -49,7 +49,7 @@
         $request->enableTestMode();
         $request->setRequesterEmail('phpexample@example.com');
         //$request->setHideTextTags(true);
-        //$request->setUseTextTags(true);
+        $request->setUseTextTags(true);
         $request->addFile("$target_file");
         $request->setMessage("Please Sign This, Thanks!");
         $request->setSubject("Here's the subject, and it's awesome");

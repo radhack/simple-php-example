@@ -6,7 +6,7 @@
                     url: "<?php echo $sign_url ?>",
                     uxVersion: 2,
                     allowCancel: true,
-                    skipDomainVerification: true,
+//                     skipDomainVerification: true,
                     debug: true,
                     messageListener: function (eventData) {
                         ("Got message data: " + JSON.stringify(eventData));

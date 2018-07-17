@@ -1,8 +1,7 @@
 {
     "require": {
         "hellosign/hellosign-php-sdk": "^3",
-        "sendgrid/sendgrid": "dev-master",
-        "ext-mbstring": "* 0"
+        "sendgrid/sendgrid": "dev-master"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"

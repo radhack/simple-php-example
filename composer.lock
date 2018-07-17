@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a483910710ea3ff5028595b5b6d7812b",
+    "content-hash": "ec089bcc9edff53c6a646bcabab9e4d7",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.0",
+            "version": "6.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -36,7 +36,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -69,7 +69,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2018-04-22T15:46:56+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -189,16 +189,16 @@
         },
         {
             "name": "hellosign/hellosign-php-sdk",
-            "version": "v3.x-dev",
+            "version": "v3.5.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/HelloFax/hellosign-php-sdk.git",
-                "reference": "0c0d344b961be17b68a57e79a28fa25e481cc8a4"
+                "url": "https://github.com/hellosign/hellosign-php-sdk.git",
+                "reference": "72723eca19da9b23d909f6cf309a88ec3ffc1923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HelloFax/hellosign-php-sdk/zipball/0c0d344b961be17b68a57e79a28fa25e481cc8a4",
-                "reference": "0c0d344b961be17b68a57e79a28fa25e481cc8a4",
+                "url": "https://api.github.com/repos/hellosign/hellosign-php-sdk/zipball/72723eca19da9b23d909f6cf309a88ec3ffc1923",
+                "reference": "72723eca19da9b23d909f6cf309a88ec3ffc1923",
                 "shasum": ""
             },
             "require": {
@@ -224,7 +224,7 @@
                 }
             ],
             "description": "This is the official PHP wrapper for HelloSign's API",
-            "time": "2017-09-06 20:32:41"
+            "time": "2018-06-14T17:16:04+00:00"
         },
         {
             "name": "psr/http-message",
@@ -278,16 +278,16 @@
         },
         {
             "name": "sendgrid/php-http-client",
-            "version": "3.7.0",
+            "version": "3.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "bec48e0e2e41331438ba7872805b86c45387178d"
+                "reference": "e9a04d949ee2d19938ab83dc100933a3b41a8ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/bec48e0e2e41331438ba7872805b86c45387178d",
-                "reference": "bec48e0e2e41331438ba7872805b86c45387178d",
+                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/e9a04d949ee2d19938ab83dc100933a3b41a8ec7",
+                "reference": "e9a04d949ee2d19938ab83dc100933a3b41a8ec7",
                 "shasum": ""
             },
             "require": {
@@ -326,7 +326,7 @@
                 "rest",
                 "sendgrid"
             ],
-            "time": "2017-05-05T06:15:41+00:00"
+            "time": "2018-04-10T18:06:08+00:00"
         },
         {
             "name": "sendgrid/sendgrid",
@@ -334,30 +334,39 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "b3d6708791f0d69f36c85b1d312344d01bad1bee"
+                "reference": "2889b96de7908ea98c6600052d8bc869db5c7f8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/b3d6708791f0d69f36c85b1d312344d01bad1bee",
-                "reference": "b3d6708791f0d69f36c85b1d312344d01bad1bee",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/2889b96de7908ea98c6600052d8bc869db5c7f8a",
+                "reference": "2889b96de7908ea98c6600052d8bc869db5c7f8a",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
                 "php": ">=5.6",
-                "sendgrid/php-http-client": "~3.7"
+                "sendgrid/php-http-client": "~3.9"
             },
             "replace": {
                 "sendgrid/sendgrid-php": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "squizlabs/php_codesniffer": "2.*"
+                "phpunit/phpunit": "^5.7.9 || ^6.4.3",
+                "squizlabs/php_codesniffer": "3.*",
+                "swaggest/json-diff": "^3.4"
             },
             "type": "library",
             "autoload": {
+                "psr-4": {
+                    "SendGrid\\": "lib/",
+                    "SendGrid\\Mail\\": "lib/mail/",
+                    "SendGrid\\Contacts\\": "lib/contacts/",
+                    "SendGrid\\Stats\\": "lib/stats/"
+                },
                 "files": [
-                    "lib/SendGrid.php",
-                    "lib/helpers/mail/Mail.php"
+                    "lib/SendGrid.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -372,22 +381,22 @@
                 "send",
                 "sendgrid"
             ],
-            "time": "2017-08-15 23:12:58"
+            "time": "2018-06-27 00:26:28"
         }
     ],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v124",
+            "version": "v138",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "ae364349c513e569d7d4614ab3b1767eb883b858"
+                "reference": "9d6f6a0216bc03b737674ee9f6421e8e024fbb34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/ae364349c513e569d7d4614ab3b1767eb883b858",
-                "reference": "ae364349c513e569d7d4614ab3b1767eb883b858",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/9d6f6a0216bc03b737674ee9f6421e8e024fbb34",
+                "reference": "9d6f6a0216bc03b737674ee9f6421e8e024fbb34",
                 "shasum": ""
             },
             "bin": [
@@ -418,19 +427,16 @@
                 "nginx",
                 "php"
             ],
-            "time": "2017-09-07T23:07:36+00:00"
+            "time": "2018-07-10T17:23:30+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hellosign/hellosign-php-sdk": 20,
         "sendgrid/sendgrid": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "ext-mbstring": "* 0"
-    },
+    "platform": [],
     "platform-dev": []
 }

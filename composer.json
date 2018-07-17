@@ -1,7 +1,6 @@
 {
     "require": {
-        "hellosign/hellosign-php-sdk": "v3.x-dev",
-        "sendgrid/php-http-client": "~3.6",
+        "hellosign/hellosign-php-sdk": "^3",
         "sendgrid/sendgrid": "dev-master",
         "ext-mbstring": "* 0"
     },

@@ -26,13 +26,15 @@
         $request->setTitle("Testing");
         $request->setSubject('Embedded Signing With Template');
         $request->setMessage('Awesome, right?');
-        $request->setSigner('Role1', 'jack@example.com', 'Jack');
-        $request->setSigner('Role2', 'jack@example.com', 'and Jill');
-        $request->setSigner('Role3', 'jack@example.com', 'Went');
-        $request->setSigner('Role4', 'jack@example.com', 'Up The');
-        $request->setSigner('Role5', 'jack@example.com', 'Hill');
-        $request->setCustomFieldValue('Cost', '$100,000,000');
-        $request->setTemplateId('5f5650f1cbfd497393cfa426d7d8d81e2a62a1f4');
+        $request->setSigner('signer', 'jack@example.com', 'Jack');
+        $request->setTemplateId('5980349258201b11e818adc92017aef70dcee323');
+//         $request->setSigner('Role1', 'jack@example.com', 'Jack');
+//         $request->setSigner('Role2', 'jack@example.com', 'and Jill');
+//         $request->setSigner('Role3', 'jack@example.com', 'Went');
+//         $request->setSigner('Role4', 'jack@example.com', 'Up The');
+//         $request->setSigner('Role5', 'jack@example.com', 'Hill');
+//         $request->setCustomFieldValue('Cost', '$100,000,000');
+//         $request->setTemplateId('5f5650f1cbfd497393cfa426d7d8d81e2a62a1f4');
 
         // Turn it into an embedded request
         $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
